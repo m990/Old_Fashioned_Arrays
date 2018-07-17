@@ -19,4 +19,12 @@ public class Inserting {
 		}
 		return newArr;
 	}
+	public static String[] insertAlphabetically(String[] wordList, String word) {
+		String[] new
+		for (int i = 0; i < wordList.length; i++) {
+			if (wordList[i].compareTo(word) > 0) {
+				
+			}
+		}
+	}
 }
