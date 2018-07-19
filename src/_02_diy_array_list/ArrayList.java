@@ -5,8 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayList<T> implements List{
-	Object[] list = new Object[0];
+public class ArrayList<T> implements List<T>{
+	int size = 0;
+	Object[] list = new Object[10];
 	
 	@Override
 	public int size() {
@@ -48,12 +49,13 @@ public class ArrayList<T> implements List{
 	public boolean add(Object e) {
 		// TODO Auto-generated method stub
 		Object[] newList = new List[list.length+1];
-		if (list.length != 0) {
-			for (int i = 0; i < list.length; i++) {
+		if (size == list.length) {
+			for (int i = 0; i < list.length-1; i++) {
 				newList[i] = list[i];
 			}
+			list = newList;
 		}
-		newList[newList.length+1] = e;
+		list[size] = (T)e;
 		
 		return false;
 	}
@@ -101,9 +103,9 @@ public class ArrayList<T> implements List{
 	}
 
 	@Override
-	public Object get(int index) {
+	public T get(int index) {
 		// TODO Auto-generated method stub
-		return null;
+		return (T)list[index];
 	}
 
 	@Override
@@ -119,7 +121,7 @@ public class ArrayList<T> implements List{
 	}
 
 	@Override
-	public Object remove(int index) {
+	public T remove(int index) {
 		// TODO Auto-generated method stub
 		return null;
 	}
