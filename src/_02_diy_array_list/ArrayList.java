@@ -48,7 +48,7 @@ public class ArrayList<T> implements List<T> {
 	@Override
 	public boolean add(Object e) {
 		// TODO Auto-generated method stub
-		
+
 		if (size == list.length) {
 			T[] newList = (T[]) new Object[list.length + 1];
 			for (int i = 0; i < list.length - 1; i++) {
@@ -64,6 +64,16 @@ public class ArrayList<T> implements List<T> {
 	@Override
 	public boolean remove(Object o) {
 		// TODO Auto-generated method stub
+		boolean found = false;
+		for (int i = 0; i < list.length; i++) {
+			if (list[i] == (T) o) {
+				found = true;
+				list[i] = list[i + 1];
+			}
+			if (found) {
+				list[i] = list[i + 1];
+			}
+		}
 		return false;
 	}
 
@@ -112,11 +122,11 @@ public class ArrayList<T> implements List<T> {
 	@Override
 	public Object set(int index, Object element) {
 		// TODO Auto-generated method stub
+		list[index] = (T) element;
 		return null;
 	}
 
-	@Override
-	public void add(int index, Object element) {
+	public void addAt(int index, Object element) {
 		// TODO Auto-generated method stub
 
 	}
@@ -124,6 +134,19 @@ public class ArrayList<T> implements List<T> {
 	@Override
 	public T remove(int index) {
 		// TODO Auto-generated method stub
+		boolean found = false;
+		for (int i = 0; i < list.length; i++) {
+			if (list[i] == (T) element) {
+				found = true;
+				list[i] = list[i + 1];
+			}
+			if (found) {
+				list[i] = list[i + 1];
+			}
+		}
+		for (T t : list) {
+			System.out.println(t);
+		}
 		return null;
 	}
 
@@ -155,5 +178,11 @@ public class ArrayList<T> implements List<T> {
 	public List subList(int fromIndex, int toIndex) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void add(int index, T element) {
+		// TODO Auto-generated method stub
+
 	}
 }
