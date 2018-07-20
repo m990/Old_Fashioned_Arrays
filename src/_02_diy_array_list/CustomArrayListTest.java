@@ -12,13 +12,13 @@ public class CustomArrayListTest {
 		list.add(0);
 		list.add(1);
 		list.add(206);
-	
+		
 		if(list.get(0) != 0) fail("list.get(0) returning improper value.");
 		if(list.get(1) != 1) fail("list.get(1) returning improper value.");
 		if(list.get(2) != 206) fail("list.get(2) returning improper value.");
 	}
 	
-	/*@Test
+	@Test
 	public void testSet() {
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("TESTER");
@@ -85,7 +85,6 @@ public class CustomArrayListTest {
 			fail("list.get(1) returning improper value.");
 		}
 	}
-	
 	@Test
 	public void testContains() {
 		ArrayList<String> list = new ArrayList<String>();
@@ -100,5 +99,5 @@ public class CustomArrayListTest {
 		assertTrue(list.contains("only"));
 		assertFalse(list.contains("the"));
 		assertFalse(list.contains("best"));
-	}*/
+	}
 }

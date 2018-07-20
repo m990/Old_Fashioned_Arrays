@@ -7,7 +7,7 @@ import java.util.ListIterator;
 
 public class ArrayList<T> implements List<T> {
 	int size = 0;
-	Object[] list = new Object[10];
+	T[] list = (T[]) new Object[10];
 
 	@Override
 	public int size() {
@@ -48,15 +48,16 @@ public class ArrayList<T> implements List<T> {
 	@Override
 	public boolean add(Object e) {
 		// TODO Auto-generated method stub
-		Object[] newList = new List[list.length + 1];
+		
 		if (size == list.length) {
+			T[] newList = (T[]) new Object[list.length + 1];
 			for (int i = 0; i < list.length - 1; i++) {
-				newList[i] = list[i];
+				newList[i] = (T) list[i];
 			}
 			list = newList;
 		}
 		list[size] = (T) e;
-
+		size++;
 		return false;
 	}
 
