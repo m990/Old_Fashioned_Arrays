@@ -65,16 +65,22 @@ public class ArrayList<T> implements List<T> {
 	public boolean remove(Object o) {
 		// TODO Auto-generated method stub
 		boolean found = false;
-		for (int i = 0; i < list.length; i++) {
+		for (int i = 0; i < list.length-1; i++) {
 			if (list[i] == (T) o) {
 				found = true;
-				list[i] = list[i + 1];
+				list[i] = list[i+1];
+				size --;
 			}
-			if (found) {
-				list[i] = list[i + 1];
+			else if (found) {
+				list[i] = list[i+1];
 			}
 		}
-		return false;
+		if (found) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	@Override
@@ -135,19 +141,19 @@ public class ArrayList<T> implements List<T> {
 	public T remove(int index) {
 		// TODO Auto-generated method stub
 		boolean found = false;
+		Object returnVal = "";
 		for (int i = 0; i < list.length; i++) {
-			if (list[i] == (T) element) {
+			if (i == index) {
 				found = true;
-				list[i] = list[i + 1];
+				size--;
+				returnVal = list[i];
+				list[i] = list[i+1];
 			}
 			if (found) {
-				list[i] = list[i + 1];
+				list[i] = list[i+1];
 			}
 		}
-		for (T t : list) {
-			System.out.println(t);
-		}
-		return null;
+		return (T) returnVal;
 	}
 
 	@Override
