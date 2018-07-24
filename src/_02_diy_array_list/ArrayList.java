@@ -65,22 +65,21 @@ public class ArrayList<T> implements List<T> {
 	public boolean remove(Object o) {
 		// TODO Auto-generated method stub
 		boolean found = false;
-		for (int i = 0; i < list.length-1; i++) {
-			if (list[i] == (T) o) {
+		for (int i = 0; i < list.length; i++) {
+			if (list[i].equals((T) o)) {
 				found = true;
-				list[i] = list[i+1];
+				if (i != list.length-1) {
+					list[i] = list[i+1];	
+				}
 				size --;
 			}
 			else if (found) {
-				list[i] = list[i+1];
+				if (i != list.length-1) {
+					list[i] = list[i+1];	
+				}
 			}
 		}
-		if (found) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return found;
 	}
 
 	@Override
@@ -134,26 +133,34 @@ public class ArrayList<T> implements List<T> {
 
 	public void addAt(int index, Object element) {
 		// TODO Auto-generated method stub
-
+		T[] arr = (T[]) new Object[list.length+1];
+		for (int i = 0; i < index; i++) {
+			arr[i] = list[i];
+		}
+		arr[index] = (T) element;
+		for (int i = index + 1; i < list.length; i++) {
+			arr[i] = list[i-1];
+		}
+		list = arr;
 	}
 
 	@Override
 	public T remove(int index) {
 		// TODO Auto-generated method stub
 		boolean found = false;
-		Object returnVal = "";
+		T returnVal = null;
 		for (int i = 0; i < list.length; i++) {
 			if (i == index) {
 				found = true;
 				size--;
 				returnVal = list[i];
-				list[i] = list[i+1];
+				if (i < list.length-1) list[i] = list[i+1];
 			}
 			if (found) {
-				list[i] = list[i+1];
+				if (i < list.length-1) list[i] = list[i+1];
 			}
 		}
-		return (T) returnVal;
+		return returnVal;
 	}
 
 	@Override

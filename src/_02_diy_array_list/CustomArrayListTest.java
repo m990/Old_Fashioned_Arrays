@@ -57,6 +57,13 @@ public class CustomArrayListTest {
 			fail("list.get(1) returning improper value.");
 		if (list.get(2) != 'E')
 			fail("list.get(2) returning improper value.");
+		
+		if (list.get(3) == null) {
+			System.out.println("null");
+		}
+		else {
+			System.out.println("not null");
+		}
 		if (list.get(3) != 'G')
 			fail("list.get(3) returning improper value.");
 		if (list.get(4) != 'O')
